@@ -37,6 +37,15 @@ describe "my_transpose" do
   end
 end
 
-describe "" do
+describe "stock_picker" do
+  let(:arr) { [10,20,50,80,30] }
+  let(:arr_2) { [80,70,60,50,40] }
 
+  it "find the most profitable pair of days" do
+    expect(stock_picker(arr)).to eq([0,3])
+  end
+
+  it "cannot sell stock before you buy it" do
+    expect(stock_picker(arr_2)).to eq([])
+  end
 end
