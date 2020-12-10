@@ -35,8 +35,8 @@ describe "my_transpose" do
   it "transpose a 2D grid" do
     expect(my_transpose(matrix)).to eq([[0,1,2],[3,4,5],[6,7,8]])
   end
-
-
-
 end
 
+describe "" do
+
+end
