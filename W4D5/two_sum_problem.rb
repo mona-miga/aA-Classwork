@@ -33,6 +33,21 @@ def sorting(arr, target)
   false
 end
 
+# arr = [0, 1, 5, 7]
+# p sorting(arr, 6) # => should be true
+# p sorting(arr, 10) # => should be false
+
+def hash_map(arr, target)
+  sums = {}
+  arr.each_with_index { |num,idx| sums[num] = idx }
+  arr.each_with_index do |num,i|
+    diff = target - num
+    return true if sums[diff] != nil && sums[diff] != i
+  end
+  false
+ # sums.values.any? { |value| sums.has_key?(value) }
+end
+
 arr = [0, 1, 5, 7]
-p sorting(arr, 6) # => should be true
-p sorting(arr, 10) # => should be false
+p hash_map(arr, 6) # => should be true
+p hash_map(arr, 10) # => should be false
