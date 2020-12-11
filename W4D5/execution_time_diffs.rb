@@ -42,19 +42,24 @@ def sub_sum(arr) #time complexity: O(n^2)
     max
 end
 
-# list = [5, 3, -7]
+list = [5, 3, -7]
 # p sub_sum(list)
 
+#[2, 3, -6, 7, -6, 7]
 def sub_sum2(arr)
-  largest_sum = arr[0]
-  curr_sum = arr[0]
+  largest_sum = 0
+  curr_sum = 0
 
   arr.each_with_index do |num, i|
-    j = arr.length-1
-    curr_sum = arr[i..j]
+    curr_sum = 0 if curr_sum > 0
+    curr_sum += arr[i]
     if curr_sum > largest_sum
       largest_sum = curr_sum
     end
-
   end
+  largest_sum
 end
+
+list2 = [2, 3, -6, 7, -6, 7]
+
+p sub_sum2(list2)
