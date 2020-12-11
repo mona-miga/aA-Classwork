@@ -23,7 +23,7 @@ end
 
 #p my_min2([ 0, 3, 5, 4, -5, 10, 1, 90 ])
 
-def sub_sum(arr) #time complexity: O(n^2)
+def sub_sum(arr) #time complexity: O(n^3)
     sums = []
     arr.each_with_index do |sub_a, i|
       arr.each_with_index do |sub_b, j|
@@ -45,14 +45,17 @@ end
 list = [5, 3, -7]
 # p sub_sum(list)
 
-#[2, 3, -6, 7, -6, 7]
-def sub_sum2(arr)
+
+def sub_sum2(arr)   #Time Complexity: O(n)
   largest_sum = arr[0]
   curr_sum = arr[0]
 
   arr.each_with_index do |num, i|
-    curr_sum = 0 if curr_sum < 0
-    curr_sum += arr[i] if arr[i] != arr[0]
+    if curr_sum < 0
+      curr_sum = arr[i]
+    else
+      curr_sum += arr[i] if arr[i] != arr[0]
+    end
     if curr_sum > largest_sum
       largest_sum = curr_sum
     end
@@ -63,4 +66,4 @@ end
 list2 = [2, 3, -6, 7, -6, 7]
 list3 = [-5, -1, -3]
 
-p sub_sum2(list3)
+p sub_sum2(list2)
