@@ -47,12 +47,12 @@ list = [5, 3, -7]
 
 #[2, 3, -6, 7, -6, 7]
 def sub_sum2(arr)
-  largest_sum = 0
-  curr_sum = 0
+  largest_sum = arr[0]
+  curr_sum = arr[0]
 
   arr.each_with_index do |num, i|
-    curr_sum = 0 if curr_sum > 0
-    curr_sum += arr[i]
+    curr_sum = 0 if curr_sum < 0
+    curr_sum += arr[i] if arr[i] != arr[0]
     if curr_sum > largest_sum
       largest_sum = curr_sum
     end
@@ -61,5 +61,6 @@ def sub_sum2(arr)
 end
 
 list2 = [2, 3, -6, 7, -6, 7]
+list3 = [-5, -1, -3]
 
-p sub_sum2(list2)
+p sub_sum2(list3)
