@@ -1,5 +1,6 @@
-class MyStack
-    def initialize()
+class MyQueue
+
+    def initialize
         @store = []
     end
 
@@ -15,12 +16,11 @@ class MyStack
         @store.empty?
     end
 
-    def pop
+    def enqueue(el)
+        @store.unshift(el)
+    end
+
+    def dequeue
         @store.pop
     end
-
-    def push(el)
-        @store.push(el)
-    end
-
 end
