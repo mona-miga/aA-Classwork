@@ -24,3 +24,8 @@ class MyStack
     end
 
 end
+
+# First In - Last Out
+
+# end [ ...... ] top
+# first [....] last
