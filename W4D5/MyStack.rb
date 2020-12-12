@@ -1,0 +1,3 @@
+def MyStack
+
+end
