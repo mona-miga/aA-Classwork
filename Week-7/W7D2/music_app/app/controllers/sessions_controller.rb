@@ -10,7 +10,8 @@ class SessionsController < ApplicationController
         )
         if user
             login_user!(user) #write this later
-            redirect_to user_url#write this later
+            #debugger
+            redirect_to user_url(user)#write this later
         else
             flash[:errors] = ["invalid credentials"]
             redirect_to new_session_url
