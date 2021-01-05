@@ -18,7 +18,7 @@ class Cat < ApplicationRecord
 
   SET_COLORS = 
   validates :color, inclusion: SET_COLORS
-  validates :
+  validates 
 
   
 
