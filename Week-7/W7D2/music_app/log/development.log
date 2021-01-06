@@ -3464,3 +3464,258 @@ LINE 1: SELECT  "bands".* FROM "bands" WHERE "bands"."params" = $1 L...
   app/controllers/bands_controller.rb:29:in `show'
 
 Started POST "/__better_errors/5535c3a1a95c4ab1/variables" for ::1 at 2021-01-05 15:37:18 -0800
+Started GET "/users/new" for ::1 at 2021-01-05 19:09:20 -0500
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Edwin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+
+ActiveRecord::PendingMigrationError - Migrations are pending. To resolve this issue, run:
+        bin/rails db:migrate RAILS_ENV=development:
+
+Started POST "/__better_errors/bb364bbedd776836/variables" for ::1 at 2021-01-05 19:09:22 -0500
+Started POST "/__better_errors/bb364bbedd776836/variables" for ::1 at 2021-01-05 19:09:47 -0500
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateBands (20210105225632)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (45.4ms)[0m  [1m[35mCREATE TABLE "bands" ("id" bigserial primary key, "name" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210105225632_create_bands.rb:3
+  [1m[35m (2.3ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_bands_on_name" ON "bands"  ("name")[0m
+  ↳ db/migrate/20210105225632_create_bands.rb:8
+  [1m[36mActiveRecord::SchemaMigration Create (1.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210105225632"]]
+  ↳ bin/rails:9
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (7.6ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Started GET "/users/new" for ::1 at 2021-01-05 19:09:56 -0500
+  [1m[35m (4.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Edwin/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by UsersController#new as HTML
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (4.9ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 1393ms (Views: 1296.2ms | ActiveRecord: 24.7ms)
+
+
+Started GET "/bands/new" for ::1 at 2021-01-05 19:10:03 -0500
+Processing by BandsController#new as HTML
+  Rendering bands/new.html.erb within layouts/application
+  Rendered bands/_form.html.erb (12.5ms)
+  Rendered bands/new.html.erb within layouts/application (17.8ms)
+  [1m[36mUser Load (2.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 194ms (Views: 105.3ms | ActiveRecord: 39.5ms)
+
+
+Started POST "/bands" for ::1 at 2021-01-05 19:10:08 -0500
+Processing by BandsController#create as HTML
+  Parameters: {"authenticity_token"=>"qHyGoa18uXdE6ZKQmNwrqHM4rIU0xEUPzM7Op4ufIcb0bPpP32o/l8vq4qAlHmE+5gUJcUgfo8qMOXqBB+a/jQ==", "band"=>{"name"=>"rock and roll"}}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/bands_controller.rb:10
+  [1m[36mBand Exists (12.9ms)[0m  [1m[34mSELECT  1 AS one FROM "bands" WHERE "bands"."name" = $1 LIMIT $2[0m  [["name", "rock and roll"], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:10
+  [1m[36mBand Create (2.3ms)[0m  [1m[32mINSERT INTO "bands" ("name", "created_at", "updated_at") VALUES ($1, $2, $3) RETURNING "id"[0m  [["name", "rock and roll"], ["created_at", "2021-01-06 00:10:08.280586"], ["updated_at", "2021-01-06 00:10:08.280586"]]
+  ↳ app/controllers/bands_controller.rb:10
+  [1m[35m (7.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/bands_controller.rb:10
+Redirected to http://localhost:3000/bands/1
+Completed 302 Found in 49ms (ActiveRecord: 22.8ms)
+
+
+Started GET "/bands/1" for ::1 at 2021-01-05 19:10:08 -0500
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 20ms (ActiveRecord: 0.0ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column bands.params does not exist
+LINE 1: SELECT  "bands".* FROM "bands" WHERE "bands"."params" = $1 L...
+                                             ^
+: SELECT  "bands".* FROM "bands" WHERE "bands"."params" = $1 LIMIT $2:
+  app/controllers/bands_controller.rb:29:in `show'
+
+Started POST "/__better_errors/0d3538c2018dc57a/variables" for ::1 at 2021-01-05 19:10:08 -0500
+Started GET "/bands/1" for ::1 at 2021-01-05 19:10:43 -0500
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:29
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 116ms (Views: 59.7ms | ActiveRecord: 41.3ms)
+
+
+Started GET "/bands/1/edit" for ::1 at 2021-01-05 19:11:55 -0500
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column bands.params does not exist
+LINE 1: SELECT  "bands".* FROM "bands" WHERE "bands"."params" = $1 L...
+                                             ^
+: SELECT  "bands".* FROM "bands" WHERE "bands"."params" = $1 LIMIT $2:
+  app/controllers/bands_controller.rb:24:in `edit'
+
+Started POST "/__better_errors/546992323bc22741/variables" for ::1 at 2021-01-05 19:11:55 -0500
+Started GET "/bands/1/edit" for ::1 at 2021-01-05 19:12:07 -0500
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (1.9ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:24
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/_form.html.erb (2.0ms)
+  Rendered bands/edit.html.erb within layouts/application (12.4ms)
+  [1m[36mUser Load (4.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 446ms (Views: 281.6ms | ActiveRecord: 76.4ms)
+
+
+Started GET "/bands/1" for ::1 at 2021-01-05 19:15:28 -0500
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.4ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:29
+Completed 404 Not Found in 27ms (ActiveRecord: 15.4ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Band with 'id'={:params=>nil}:
+  app/controllers/bands_controller.rb:29:in `show'
+
+Started POST "/__better_errors/787e5db947ee8212/variables" for ::1 at 2021-01-05 19:15:29 -0500
+Started GET "/bands/1" for ::1 at 2021-01-05 19:15:38 -0500
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 29ms (ActiveRecord: 13.1ms)
+
+
+
+ActiveRecord::StatementInvalid - PG::UndefinedColumn: ERROR:  column bands.params does not exist
+LINE 1: SELECT  "bands".* FROM "bands" WHERE "bands"."params" IS NUL...
+                                             ^
+: SELECT  "bands".* FROM "bands" WHERE "bands"."params" IS NULL LIMIT $1:
+  app/controllers/bands_controller.rb:29:in `show'
+
+Started POST "/__better_errors/cfcc826425afddb2/variables" for ::1 at 2021-01-05 19:15:38 -0500
+Started GET "/bands/1" for ::1 at 2021-01-05 19:16:02 -0500
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:29
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (3.4ms)
+  [1m[36mUser Load (3.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 692ms (Views: 401.5ms | ActiveRecord: 167.1ms)
+
+
+Started GET "/bands/1" for ::1 at 2021-01-05 19:17:16 -0500
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (1.8ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:29
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 161ms (Views: 101.3ms | ActiveRecord: 15.0ms)
+
+
+Started GET "/bands/1" for ::1 at 2021-01-05 19:17:43 -0500
+Processing by BandsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (1.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:29
+  Rendering bands/show.html.erb within layouts/application
+  Rendered bands/show.html.erb within layouts/application (1.2ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 243ms (Views: 159.8ms | ActiveRecord: 51.4ms)
+
+
+Started GET "/bands/1/edit" for ::1 at 2021-01-05 19:19:06 -0500
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:25
+Completed 404 Not Found in 22ms (ActiveRecord: 13.5ms)
+
+
+
+ActiveRecord::RecordNotFound - Couldn't find Band with 'id'=1000:
+  app/controllers/bands_controller.rb:25:in `edit'
+
+Started POST "/__better_errors/b722466e2715c03a/variables" for ::1 at 2021-01-05 19:19:06 -0500
+Started GET "/bands/1/edit" for ::1 at 2021-01-05 19:19:36 -0500
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1000], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:25
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/edit.html.erb within layouts/application (22.2ms)
+Completed 500 Internal Server Error in 86ms (ActiveRecord: 14.7ms)
+
+
+
+NoMethodError - undefined method `name' for nil:NilClass:
+  app/views/bands/edit.html.erb:2:in `_app_views_bands_edit_html_erb__1746421691331124661_70253938988980'
+  app/controllers/bands_controller.rb:26:in `edit'
+
+Started POST "/__better_errors/280f57764bc60c9e/variables" for ::1 at 2021-01-05 19:19:37 -0500
+Started GET "/bands/1/edit" for ::1 at 2021-01-05 19:21:41 -0500
+Processing by BandsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/bands_controller.rb:24
+  Rendering bands/edit.html.erb within layouts/application
+  Rendered bands/_form.html.erb (0.8ms)
+  Rendered bands/edit.html.erb within layouts/application (8.5ms)
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:5
+Completed 200 OK in 244ms (Views: 156.4ms | ActiveRecord: 49.0ms)
+
+
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (7.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to CreateAlbums (20210106002457)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (39.8ms)[0m  [1m[35mCREATE TABLE "albums" ("id" bigserial primary key, "title" character varying NOT NULL, "year" integer NOT NULL, "band_id" integer NOT NULL, "live" boolean DEFAULT FALSE NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20210106002457_create_albums.rb:3
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_albums_on_band_id" ON "albums"  ("band_id")[0m
+  ↳ db/migrate/20210106002457_create_albums.rb:11
+  [1m[35m (3.1ms)[0m  [1m[35mCREATE  INDEX  "index_albums_on_title" ON "albums"  ("title")[0m
+  ↳ db/migrate/20210106002457_create_albums.rb:12
+  [1m[36mActiveRecord::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20210106002457"]]
+  ↳ bin/rails:9
+  [1m[35m (9.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(4505726345591715405)[0m
+  ↳ bin/rails:9
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
