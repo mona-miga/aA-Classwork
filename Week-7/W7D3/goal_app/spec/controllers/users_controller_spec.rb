@@ -21,7 +21,7 @@ RSpec.describe UsersController, type: :controller do
             it 'logs in the user' do 
                 post :create, params: user_params
                 user = User.find_by(username: 'bob')
-                expect(session[:session_token]).to eq(user_session_token)
+                expect(session[:session_token]).to eq(user.session_token)
             end
             it 'redirects to the users show page' do 
                 post :create, params: user_params
